@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: xfarm-bot
+    env: python
+    region: frankfurt
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: TELEGRAM_BOT_TOKEN
+        # Значення задамо в панелі Render
+        sync: false
+      - key: OPENWEATHER_API_KEY
+        sync: false
